@@ -1,3 +1,4 @@
+import os
 import matplotlib.pyplot as plt
 import cartopy.crs as ccrs
 import cartopy.feature as cfeature
@@ -33,7 +34,10 @@ def main():
                         loc=4, prop={'size': 12}, frameon=True)
     ax.add_artist(text)
 
-    plt.savefig('a.png')
+    plot_dir = os.environ['PLOT_DIR']
+    png = os.path.join(plot_dir, 'cartopy.1.png')
+    plt.savefig(png)
+    print(f'Wrote: {png}')
 
 
 if __name__ == '__main__':
