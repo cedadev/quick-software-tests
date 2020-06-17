@@ -41,7 +41,15 @@ if [ ! $? ]; then
     exit
 fi
 
-cmd="python test_black.sh"
+cmd="./test_black.sh"
+$cmd
+
+if [ ! $? ]; then
+    echo "[ERROR] Failed: $cmd"
+    exit
+fi
+
+cmd="python test_tabulate.py"
 $cmd
 
 if [ ! $? ]; then
