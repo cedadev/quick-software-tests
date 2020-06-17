@@ -11,14 +11,6 @@ mkdir -p $PLOT_DIR
 export DATA_DIR=$(python -c 'import os, iris_sample_data as isd; sample_data_dir = os.path.join(os.path.dirname(isd.__file__), "sample_data"); print(sample_data_dir)')
 
 
-#DATA_SRC=root@jasmin-cylc.ceda.ac.uk:/home/users/ajh/cfplot_data
-#DATA_DIR=cfplot_data
-
-#if [ ! -d $DATA_DIR ]; then
-#    echo "[WARN] Copying example netcdf files to run tests."
-#    scp -r $DATA_DRC $DATA_DIR
-#fi
-
 if [ ! -d $DATA_DIR ]; then
     echo "[ERROR] Cannot get example data so NOT running tests."
     exit
@@ -39,7 +31,7 @@ function test_run {
 
 }
 
-
+test_run "python test_pymc3.py"
 test_run "R -f test.R"
 test_run "python test_cartopy.py"
 test_run "./test_black.sh"
