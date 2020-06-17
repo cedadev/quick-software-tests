@@ -25,35 +25,24 @@ if [ ! -d $DATA_DIR ]; then
 fi
 
 #python test_cfplot.py
-cmd="R -f test.R"
-$cmd
 
-if [ ! $? ]; then
-    echo "[ERROR] Failed: $cmd"
-    exit
-fi 
+function test_run {
 
-cmd="python test_cartopy.py"
-$cmd
+    cmd=$1
+    echo "[INFO] Running test: $cmd"
+    $cmd
 
-if [ ! $? ]; then
-    echo "[ERROR] Failed: $cmd"
-    exit
-fi
+    if [ $? -ne 0 ]; then
+        echo "[ERROR] Failed: $cmd"
+        exit
+    fi
 
-cmd="./test_black.sh"
-$cmd
+}
 
-if [ ! $? ]; then
-    echo "[ERROR] Failed: $cmd"
-    exit
-fi
 
-cmd="python test_tabulate.py"
-$cmd
-
-if [ ! $? ]; then
-    echo "[ERROR] Failed: $cmd"
-    exit
-fi
+test_run "R -f test.R"
+test_run "python test_cartopy.py"
+test_run "./test_black.sh"
+test_run "python test_tabulate.py"
+test_run "python test_llvmlite.py"
 
