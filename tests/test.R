@@ -19,3 +19,12 @@ library(igraph)
 eye.col.v <- c("brown", "green", "brown", "blue", "blue", "blue")         #vector
 eye.col.f <- factor(c("brown", "green", "brown", "blue", "blue", "blue")) #factor
 eye.col.v
+
+
+# Test "ggplot2"
+# Load ggplot2
+library(ggplot2)
+
+# Very basic chart
+basic <- ggplot(mtcars, aes(x=mpg, y=wt)) + geom_point()
+basic
