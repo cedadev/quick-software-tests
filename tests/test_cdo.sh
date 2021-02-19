@@ -10,6 +10,8 @@ cdo -select,name=longitude,latitude cfplot_data/orca2.nc $out
 
 nfloat=$(ncdump -h $out | grep -c float)
 
+rm $out
+
 if [ "$nfloat" = "2" ]
 then
     echo "cdo test passed"
@@ -18,5 +20,3 @@ else
     echo "cdo test failed"
     exit 1
 fi
-
-rm $out
