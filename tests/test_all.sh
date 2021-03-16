@@ -53,9 +53,3 @@ do
 	test_run ./$fn
     fi
 done
-
-# test all R
-for fn in test*.R
-do
-    test_run "R -f $fn"
-done
