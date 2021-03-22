@@ -5,11 +5,6 @@ if [ ! $(which conda) ]; then
     exit
 fi
 
-if [ ! -d cfplot_data ]
-then
-    ln -s /home/users/ajh/cfplot_data/ .
-fi
- 
 export PLOT_DIR=../compare/images/test
 mkdir -p $PLOT_DIR
 

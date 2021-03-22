@@ -6,7 +6,7 @@ import matplotlib.axes as ax
 from mpl_toolkits.basemap import Basemap,shiftgrid,maskoceans,addcyclic
 matplotlib.use('Agg')
 
-path = '/home/users/mholloway/xjoad.d18Opw.10yrs.annual.nc'
+path = 'testdata/xjoad.d18Opw.10yrs.annual.nc'
 var_name='d18O'
 label = r'$\delta^{18} O$'+u' ('+u'\u2030'+')'
 

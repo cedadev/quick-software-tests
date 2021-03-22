@@ -6,17 +6,17 @@ import cfplot as cfp
 pngs = ['tas.png', 'ggap1.png', 'ggap2.png']
 cfp.setvars(file=pngs[0])
 
-f=cf.read('cfplot_data/tas_A1.nc')[0]
+f=cf.read('testdata/tas_A1.nc')[0]
 cfp.con(f.subspace(time=15))
 
 
 cfp.setvars(file=pngs[1])
-f=cf.read('cfplot_data/ggap.nc')[1]
+f=cf.read('testdata/ggap.nc')[1]
 cfp.mapset(proj='npstere')
 cfp.con(f.subspace(pressure=500))
 
 cfp.setvars(file=pngs[2])
-f=cf.read('cfplot_data/ggap.nc')[1]
+f=cf.read('testdata/ggap.nc')[1]
 cfp.gopen(rows=2, columns=2, bottom=0.2)
 cfp.gpos(1)
 cfp.con(f.subspace(pressure=500), lines=False, colorbar=None)
