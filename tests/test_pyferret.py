@@ -14,3 +14,5 @@ ds = pyferret.FerDSet(ncpath)
 assert(ds['height'].unit == 'm')
 assert(ds['air_temperature'].data.shape == (49, 37, 1, 240, 1, 1))
 
+os.remove(ncpath)
+print('ran pyferret test')
