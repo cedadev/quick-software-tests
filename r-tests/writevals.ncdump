@@ -1,0 +1,62 @@
+netcdf writevals {
+dimensions:
+	X = 3 ;
+	Y = 4 ;
+	Time = UNLIMITED ; // (5 currently)
+variables:
+	double X(X) ;
+		X:units = "meters" ;
+		X:long_name = "X" ;
+	float var1d(X) ;
+		var1d:units = "units" ;
+		var1d:_FillValue = 1.e+30f ;
+	double Y(Y) ;
+		Y:units = "meters" ;
+		Y:long_name = "Y" ;
+	float var2d(Y, X) ;
+		var2d:units = "units" ;
+		var2d:_FillValue = 1.e+30f ;
+	double Time(Time) ;
+		Time:units = "seconds" ;
+		Time:long_name = "Time" ;
+	float var3d(Time, Y, X) ;
+		var3d:units = "units" ;
+		var3d:_FillValue = 1.e+30f ;
+data:
+
+ X = 100, 200, 300 ;
+
+ var1d = 101, 102, 27.5 ;
+
+ Y = 100, 200, 300, 400 ;
+
+ var2d =
+  201, 202, 203,
+  101, 102, 103,
+  101, 102, 103,
+  210, 211, 212 ;
+
+ Time = 0.01, 0.02, 0.03, 0.04, 0.05 ;
+
+ var3d =
+  201, 202, 203,
+  204, 205, 206,
+  207, 208, 209,
+  210, 211, 212,
+  201, 202, 203,
+  204, 205, 206,
+  207, 208, 209,
+  210, 211, 212,
+  201, 202, 203,
+  204, 205, 206,
+  207, 208, 209,
+  210, 211, 212,
+  201, 202, 203,
+  204, 205, 206,
+  207, 208, 209,
+  210, 211, 212,
+  201, 202, 203,
+  204, 205, 206,
+  207, 208, 209,
+  210, 211, 212 ;
+}

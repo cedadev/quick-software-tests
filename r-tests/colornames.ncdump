@@ -1,0 +1,16 @@
+netcdf colornames {
+dimensions:
+	nchar = 12 ;
+	colorno = 6 ;
+variables:
+	char colors(colorno, nchar) ;
+data:
+
+ colors =
+  "red",
+  "orange",
+  "green",
+  "yellow",
+  "puce",
+  "colorwithver" ;
+}
