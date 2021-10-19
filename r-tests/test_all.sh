@@ -54,8 +54,9 @@ do
     fi
 done
 
-# test all R
-for fn in test*.R
-do
-    test_run "R -f $fn"
-done
+# commented out - R programs are run via shell scripts
+# # test all R
+# for fn in test*.R
+# do
+#     test_run "R -f $fn"
+# done
