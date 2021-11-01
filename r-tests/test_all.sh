@@ -38,7 +38,7 @@ function test_run {
 }
 
 rm -f succeeded failed
-
+# 
 # test all python
 for fn in test*.py
 do
@@ -54,9 +54,11 @@ do
     fi
 done
 
-# commented out - R programs are run via shell scripts
+# commented out general loop over R programs - R programs are run via shell scripts
 # # test all R
 # for fn in test*.R
 # do
 #     test_run "R -f $fn"
 # done
+
+
