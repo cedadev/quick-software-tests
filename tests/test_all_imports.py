@@ -30,8 +30,9 @@ for pack in packages:
     
     try:
         __import__(pack)
-    except ImportError:
-        print("failed")
+    #except ImportError:
+    except Exception as exc:
+        print(f"failed: {exc}")
         failures.append(pack)
 
     #time.sleep(0.5)
