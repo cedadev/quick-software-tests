@@ -1,5 +1,7 @@
 #!/bin/sh
 
+. ./_enable_scl
+
 tar xvfz england_gor_2011.tar.gz
 
 ncl _test_ncl.ncl &
