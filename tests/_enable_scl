@@ -1,0 +1,7 @@
+scl_setup=/opt/rh/jasmin-sci/enable
+if [ -e $scl_setup ]
+then
+    . $scl_setup
+else
+    echo "scl not available ($scl_setup absent)"
+fi

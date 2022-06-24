@@ -5,6 +5,8 @@
 #  extraction instead of cdo
 #
 
+. ./_enable_scl
+
 out=nco_out.nc
 rm $out
 
