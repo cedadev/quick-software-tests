@@ -38,6 +38,8 @@ for png in pngs:
 
     os.system(f'display {png} &')
 
+print(f'The following plots have been generated. {pngs}.')
+print('Compare if necessary with examples in the example_plots directory.')
 resp = input('Did you see 3 images? ')
 
 print('Please close the images')
