@@ -28,7 +28,7 @@ cfp.mapset(proj='npstere', boundinglat=30, lon_0=180)
 cfp.con(f.subspace(pressure=500), lines=False, colorbar=None)
 cfp.gpos(4)
 cfp.mapset(proj='spstere', boundinglat=-30, lon_0=0)
-cfp.con(f.subspace(pressure=500), lines=False, colorbar_position=[0.1, 0.1, 0.8, 0.02],
+cfp.con(f.subspace(pressure=500), lines=False, 
         colorbar_orientation='horizontal')
 cfp.gclose()
 
