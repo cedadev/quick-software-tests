@@ -6,7 +6,8 @@ err_out=all_imports_output_where_failed.$$
 
 rm -f $all_out $this_out $err_out
 
-cat libraries | while read lib
+ls $(dirname $(which R))/../lib/R/library | egrep -v '^translations$' | \
+    while read lib
 do
     echo "=== $lib ===" > $this_out
 
