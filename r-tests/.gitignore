@@ -1,9 +1,8 @@
-scratch
-*~
-plot.png
-*.nc
-cfplot_data
+typescript*
+all_imports_output*
+core.*
 succeeded
 failed
-Rplots.pdf
-all_imports_output*
+plot.png
+scratch
+writevals.nc

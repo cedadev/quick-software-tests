@@ -9,3 +9,6 @@ junk
 *.dat
 succeeded
 failed
+test.out
+test.exe
+*.o
