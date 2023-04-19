@@ -1,0 +1,24 @@
+
+Top-level scripts:
+
+    - TEST_ALL_JASPY.sh
+    - TEST_ALL_JASMIN_SCI.sh
+
+
+TEST_ALL_JASPY.sh will run the following tests:
+
+  - everything called test_*.sh, using the command: ./<filename>
+  - everything called test_PT_*.py  using the command:  pytest <filename>
+  - everything else called test_*.py  using the command:  python <filename>
+
+except for:
+  - everything listed in disabled_tests or jasmin_sci_tests
+
+
+TEST_ALL_JASMIN_SCI.sh will run every test listed in jasmin_sci_tests
+(using the same logic as above to decide how to run it)
+
+
+Before running the tests, make sure that you have a working X display.
+When running the test, expect some interactive questions regarding whether you saw
+certain windows appear.

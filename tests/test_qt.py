@@ -1,15 +1,19 @@
 import sys
 import random
+
 from PySide2.QtWidgets import (QApplication, QLabel, QPushButton,
                                QVBoxLayout, QWidget)
 from PySide2.QtCore import Slot, Qt
+
+import _confirm_images as CI
+
 
 class MyWidget(QWidget):
     def __init__(self):
         QWidget.__init__(self)
 
         self.hello = ["Hallo Welt", "你好，世界", "Hei maailma",
-            "Hola Mundo", "Привет мир"]
+                      "Hola Mundo", "Привет мир", "S'mae byd"]
 
         self.button = QPushButton("Click me!")
         self.text = QLabel("Hello World")
@@ -34,6 +38,18 @@ if __name__ == "__main__":
     widget.resize(800, 600)
     widget.show()
 
-    sys.exit(app.exec_())
+    print("""
+====================================================
+You should now see an application with a button to
+randomly switch between "hello world" messages in
+various languages. Try clicking it a few times and
+then close the window.
+====================================================
+""")    
+    
+    status = app.exec_()
 
-    resp = input('Did an application Window open?')
+    if status != 0:
+        raise Exception("QT test failed")
+
+    CI.image_confirm('qt')

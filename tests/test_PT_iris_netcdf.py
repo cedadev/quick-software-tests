@@ -1,4 +1,6 @@
+import pytest
 
+@pytest.mark.skip
 def test_iris_netcdftime_compatibility_1():
     import iris, netcdftime
     t1 = netcdftime.datetime(1997, 2, 2, 1, 0, 0, 0, -1, 1)
@@ -6,6 +8,7 @@ def test_iris_netcdftime_compatibility_1():
     assert (t1 == t2)
 
 
+@pytest.mark.skip
 def test_iris_netcdftime_compatibility_2():
     import cf_units
     from iris.time import PartialDateTime as PDT

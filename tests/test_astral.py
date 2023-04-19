@@ -13,15 +13,12 @@ def main():
         print(location)
         s = location.sun(date=d)
         
-    elif v.startswith('2.'):
+    else:
         from astral.sun import sun
         city = astral.LocationInfo("London")
         print(city)
         s = sun(city.observer, date=d)
     
-    else:
-        raise Exception('unsupported astral version')
-
     dawn = s['dawn'].astimezone(pytz.utc)
 
     print(dawn)

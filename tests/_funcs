@@ -1,0 +1,81 @@
+exclude_files="disabled_tests"
+
+is_excluded() {
+    fn=$1
+    if egrep -q "^\s*$fn\s*$" $exclude_files > /dev/null
+    then
+	return 0
+    else
+	return 1
+    fi
+}
+
+
+make_logdir() {
+    logdir=test_logs.$(date +%Y%m%d.%H%M%S)
+    mkdir $logdir
+    succfile=$logdir/succeeded-tests
+    failfile=$logdir/failed-tests
+}
+
+
+get_log_name() {
+    cmd="$1"
+    echo $logdir/log_$(echo "$cmd" | tr ' ' _ | sed 's,\.*/,,')
+}
+
+function test_run {
+
+    fn="$1"
+    if echo $fn | grep -q "\.py$" > /dev/null
+    then
+	if echo $fn | grep -q '^test_PT_' > /dev/null
+	then
+	    cmd="pytest $fn"
+	else
+	    cmd="python $fn"
+	fi
+    else
+	cmd="./$fn"
+    fi
+
+    echo "[INFO] Running test: $cmd"
+    logfile=$(get_log_name "$cmd")
+    script -e -c "$cmd" $logfile
+
+    if [ $? -eq 0 ]
+    then
+	echo "Success: $cmd" | tee -a $succfile
+	mv $logfile $logfile.succeeded
+    else
+        echo "[ERROR] Failed: $cmd" | tee -a $failfile
+	mv $logfile $logfile.FAILED
+    fi
+}
+
+
+
+summarise_and_exit() {
+cat <<EOF
+
+=======================
+Summary of test results
+=======================
+
+EOF
+
+    status=0
+    cat $succfile
+
+    if [ -e $failfile ]
+    then
+	cat $failfile
+	status=1
+	echo ">>> ONE OR MORE TESTS FAILED"
+    else
+	echo "all tests passed"
+    fi
+    echo "logs are in subdirectory $logdir"
+
+    exit $status
+}

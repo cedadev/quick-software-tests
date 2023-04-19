@@ -12,7 +12,7 @@ print(libdir)
 
 packages = sorted(re.sub('[.-].*$', '', name)
                   for name in os.listdir(libdir,)
-                  if not (name.endswith("-info") or name.endswith(".egg") or name.endswith(".pth") or name.startswith("_") or name.endswith(".txt")))
+                  if not (name.endswith("-info") or name.endswith(".egg") or name.endswith(".pth") or name.startswith("_") or name.endswith(".txt") or name == 'libpython.py'))
 
 failures = []
 

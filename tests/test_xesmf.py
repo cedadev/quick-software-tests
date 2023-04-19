@@ -10,3 +10,4 @@ ds_out = xr.Dataset({'lat': (['lat'], np.arange(16, 75, 1.0)),
 regridder = xe.Regridder(ds, ds_out, 'bilinear')
 output = regridder.regrid_dataset(ds)
 
+print('did xesmf test')

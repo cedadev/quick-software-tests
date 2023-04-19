@@ -1,11 +1,11 @@
 #!/bin/sh
 
-env=/tmp/testenv
-vn=0.2
+env=/tmp/testenv.$$
+vn=0.0.4
 
 rm -fr $env
 
-virtualenv --system-site-packages $env
+python3 -m venv --system-site-packages $env
 
 . $env/bin/activate
 
@@ -15,15 +15,15 @@ then
     exit 1
 fi
 
-pip install hello-world==$vn
+pip install hello-world-python==$vn
 
-version=$(pip freeze | perl -lne 'print $1 if /hello-world==(.*)/')
+version=$(pip freeze | perl -lne 'print $1 if /hello-world-python==(.*)/')
 
-deactivate
+message=$(python -c 'from hello_world import hello_world; print(hello_world.hello_world("jaspy"))')
 
 rm -fr $env
 
-if [ "$version" = "$vn" ]
+if [ "$version" = "$vn" -a "$message" = "Hello World jaspy" ]
 then
     echo "virtualenv / pip test passed"
     exit 0

@@ -12,3 +12,4 @@ failed
 test.out
 test.exe
 *.o
+test_logs.*

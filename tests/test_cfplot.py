@@ -3,6 +3,8 @@ import cf
 import matplotlib.pyplot as plt
 import cfplot as cfp
 
+import _confirm_images as CI
+
 pngs = ['tas.png', 'ggap1.png', 'ggap2.png']
 cfp.setvars(file=pngs[0])
 
@@ -28,8 +30,9 @@ cfp.mapset(proj='npstere', boundinglat=30, lon_0=180)
 cfp.con(f.subspace(pressure=500), lines=False, colorbar=None)
 cfp.gpos(4)
 cfp.mapset(proj='spstere', boundinglat=-30, lon_0=0)
-cfp.con(f.subspace(pressure=500), lines=False, 
-        colorbar_orientation='horizontal')
+#cfp.con(f.subspace(pressure=500), lines=False, 
+#        colorbar_orientation='horizontal')
+cfp.con(f.subspace(pressure=500), lines=False)
 cfp.gclose()
 
 for png in pngs:
@@ -38,12 +41,5 @@ for png in pngs:
 
     os.system(f'display {png} &')
 
-print(f'The following plots have been generated. {pngs}.')
-print('Compare if necessary with examples in the example_plots directory.')
-resp = input('Did you see 3 images? ')
-
-print('Please close the images')
-
-if not resp.lower().startswith('y'):
-    raise Exception('cfplot tests failed.')
-
+CI.images_launched(pngs)
+CI.image_confirm('cfplot')

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rm -f h5ex_d_fillval h5ex_d_fillval.h5
+rm -f h5ex_d_fillval h5ex_d_fillval.h5 h5ex_d_fillval.o
 
 gfortran -o h5ex_d_fillval  h5ex_d_fillval.f90 -L$CONDA_PREFIX/lib -I$CONDA_PREFIX/include -lhdf5_fortran
 

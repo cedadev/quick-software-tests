@@ -11,6 +11,8 @@ from scipy.linalg import toeplitz, cholesky
 
 from sklearn.covariance import LedoitWolf, OAS
 
+import _confirm_images as CI
+
 np.random.seed(0)
 
 n_features = 100
@@ -63,12 +65,6 @@ plt.legend(loc="lower right")
 plt.ylim(plt.ylim()[0], 1. + (plt.ylim()[1] - plt.ylim()[0]) / 10.)
 plt.xlim(5, 31)
 
+CI.images_follow(['scikit_learn_example.png'])
 plt.show()
-
-resp = input('Did you see an image? ')
-
-print('Please close the image')
-
-if not resp.lower().startswith('y'):
-    raise Exception('scikit-learn tests failed.')
-
+CI.image_confirm('scikit-learn')
