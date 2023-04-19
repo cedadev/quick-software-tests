@@ -6,3 +6,7 @@ failed
 plot.png
 scratch
 writevals.nc
+cfplot_data
+TEST_ALL_JASR.sh~
+test_logs.*
+colornames.nc
