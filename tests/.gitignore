@@ -13,3 +13,5 @@ test.out
 test.exe
 *.o
 test_logs.*
+era5-2mt-2019-03-uk.grib
+era5-2mt-2019-03-uk.grib.*.idx
