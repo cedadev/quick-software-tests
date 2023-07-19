@@ -32,7 +32,7 @@ for m,n in zip(indxm,indxn):
         i = i + 1
 if nm < 0:
     raise ValueError('invalid m,n - must fit within triangular truncation at wavenumber '+repr(ntrunc))
-coeffs = np.zeros((ntrunc+1)*(ntrunc+2)//2,np.complex)
+coeffs = np.zeros((ntrunc+1)*(ntrunc+2)//2,complex)
 coeffs[nm] = 1.
 spharmonic = x.spectogrd(coeffs)
 delta = 360./nlons
