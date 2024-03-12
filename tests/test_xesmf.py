@@ -10,4 +10,7 @@ ds_out = xr.Dataset({'lat': (['lat'], np.arange(16, 75, 1.0)),
 regridder = xe.Regridder(ds, ds_out, 'bilinear')
 output = regridder.regrid_dataset(ds)
 
+val = float(output['air'][1,1,1])
+assert 296.5 < val < 296.6
+
 print('did xesmf test')
