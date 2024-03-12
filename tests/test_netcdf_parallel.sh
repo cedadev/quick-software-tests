@@ -9,7 +9,7 @@
 # parallel access.
 #
 
-np=8
+np=4
 
 fc=$(nf-config --fc)
 fflags=$(nf-config --fflags)

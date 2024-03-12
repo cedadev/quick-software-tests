@@ -3,4 +3,3 @@ test_black.sh
 test_pyferret.py
 test_pyngl.py
 test_ncl.sh
-test_netcdf_parallel.sh
