@@ -10,8 +10,8 @@ do
     fi
 done
 
-cexe=mpi_send_recv_c
-fexe=mpi_send_recv_f
+cexe=./mpi_send_recv_c
+fexe=./mpi_send_recv_f
 nproc=4
 
 csrc=$cexe.c
