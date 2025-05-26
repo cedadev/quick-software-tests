@@ -10,7 +10,7 @@ try:
     print('Using COADS data for test')
     sst = dataset['SST']
     assert sst.shape == (12, 90, 180)
-    val, = sst[1, 40, 70].array
+    val = sst[1, 40, 70].data.item()
     assert 29 < val < 30
 
 except Exception as exc:
@@ -23,6 +23,6 @@ except Exception as exc:
     print('Using NOAA OISST data for test')
     sst = dataset['sst']
     assert sst.shape == (494, 180, 360)
-    val = np.array(sst[1, 40, 70]).flatten()[0]
+    val = sst[1, 40, 70].data.item()
     assert val == 922
 
