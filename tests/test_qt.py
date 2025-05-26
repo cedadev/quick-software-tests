@@ -1,9 +1,9 @@
 import sys
 import random
 
-from PySide2.QtWidgets import (QApplication, QLabel, QPushButton,
+from PySide6.QtWidgets import (QApplication, QLabel, QPushButton,
                                QVBoxLayout, QWidget)
-from PySide2.QtCore import Slot, Qt
+from PySide6.QtCore import Slot, Qt
 
 import _confirm_images as CI
 
