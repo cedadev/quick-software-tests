@@ -17,3 +17,5 @@ era5-2mt-2019-03-uk.grib
 era5-2mt-2019-03-uk.grib.*.idx
 *.class
 simple_xy_par_rd
+simple_xy_par_wr
+strace.out
