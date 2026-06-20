@@ -10,12 +10,14 @@
 #
 
 np=4
+#np=1
 
 fc=$(nf-config --fc)
 fflags=$(nf-config --fflags)
 flibs=$(nf-config --flibs)
 
-outdir=/work/scratch-pw2/$(id -un)/parallel-nc-test
+#outdir=/work/scratch-pw5/$(id -un)/parallel-nc-test
+outdir=/tmp/out
 if [ -d $outdir ] || mkdir -p $outdir
 then
     echo "using directory $outdir"
