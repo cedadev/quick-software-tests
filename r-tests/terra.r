@@ -9,4 +9,13 @@ gauges_spatial = vect(gauge_locations, geom=c("longitude", "latitude"), crs = "e
 
 gauges_rotated = rotate(gauges_spatial, long=0, split=TRUE, left=FALSE)
 
+#===================================================
+
+# also do netcdf test
+
+hur <- rast("testdata/hur_2d.nc")
+location <- cbind(4.6875, -58.125)
+value <- extract(hur, location)
+print(value)
+
 print("did terra test")
