@@ -1,1 +1,3 @@
-_test_gpu.py
+_test_gpu_torch.py
+_test_gpu_tensorflow.py
+_test_gpu_jax.py
